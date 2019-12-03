@@ -16,11 +16,12 @@ $(document).ready(() => {
     $('.notification-btn').click(() => {
         $('.notification-container').slideUp();
     })
-    $('.close-icon').click(() => {
+    $('#close-icon').click(() => {
+        console.log('clicked')
         $('.newsletter-card').animate({ bottom: '-500px' }, 500);
         setTimeout(() => {
             $('.newsletter-card').addClass("hidden");
-        },1000)
+        },500)
         
     })
 });
