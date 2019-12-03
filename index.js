@@ -1,10 +1,15 @@
 $(document).ready(() => {
     $(window).scroll(() => {
+        var news_hidden = $('#newsletter').hasClass("hidden")
         $('.newsletter-card').each(function (i) {
             var bottom_of_object = $(this).position().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-            if (bottom_of_object > bottom_of_window) {
+            if (bottom_of_object && !news_hidden) {
                 $(this).animate({ bottom: 0 }, 500);
+            }
+            if(news_hidden) {
+                setTimeout(() => {
+                    $('.newsletter-card').removeClass("hidden");
+                },600000)
             }
         });
     });
